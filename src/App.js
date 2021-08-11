@@ -31,7 +31,10 @@ const App = () => {
         if (response.ok) return response.json();
         throw new Error("Network response was not ok.");
       })
-      .then((data) => setResponseData(data.contents));
+      // .then((data) => setResponseData(data.contents));
+      .then(async (data)=>await setResponseData(data.contents));
+
+      // console.log(data);
   };
 
   getWebData();
@@ -102,6 +105,7 @@ const App = () => {
               backgroundColor="white"
             />
             <InputRightAddon
+            border="none"
               color="white"
               children="Apply"
               className="applyBtn"
